@@ -1,5 +1,16 @@
 <template>
-  <router-view></router-view>
+  <el-container>
+    <el-aside class="aside" width="auto">
+      <pageAside />
+    </el-aside>
+    <el-container>
+      <el-header height="auto" style="padding: 0"><pageHeader /></el-header>
+      <el-main style="padding: 15px">
+        <bread />
+        <router-view style="margin-top: 15px"></router-view>
+      </el-main>
+    </el-container>
+  </el-container>
 </template>
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";

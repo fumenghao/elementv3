@@ -25,7 +25,7 @@
 
 <script>
 import { defineComponent, reactive, ref, toRefs } from "vue";
-export default {
+export default defineComponent({
   setup() {
     const param = reactive({
       username: "admin",
@@ -45,7 +45,7 @@ export default {
       rules,
     };
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>

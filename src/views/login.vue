@@ -12,7 +12,11 @@
               <el-input v-model="param.password" type="password"></el-input>
             </el-form-item>
             <div class="login-btn">
-              <el-button width="100%" type="primary" size="small"
+              <el-button
+                @click="submit"
+                width="100%"
+                type="primary"
+                size="small"
                 >提交</el-button
               >
             </div>
@@ -24,6 +28,7 @@
 </template>
 
 <script>
+import { useRouter } from "vue-router";
 import { defineComponent, reactive, ref, toRefs } from "vue";
 export default defineComponent({
   setup() {
@@ -31,6 +36,7 @@ export default defineComponent({
       username: "admin",
       password: "123123",
     });
+    const router = useRouter();
     const rules = {
       username: [
         {
@@ -40,9 +46,14 @@ export default defineComponent({
         },
       ],
     };
+
+    function submit() {
+      router.push("/page/home");
+    }
     return {
       param,
       rules,
+      submit,
     };
   },
 });
@@ -72,6 +83,7 @@ export default defineComponent({
     background: #ffffff;
     width: 30%;
     margin: 100px auto 0;
+    border-radius: 6px !important;
   }
 }
 .login-btn {
@@ -81,8 +93,5 @@ export default defineComponent({
   width: 100%;
   height: 36px;
   margin-bottom: 10px;
-}
-.card_container {
-  border-radius: 6px;
 }
 </style>
